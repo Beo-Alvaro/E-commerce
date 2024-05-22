@@ -1,83 +1,141 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Poppins', sans-serif;
+  --h2-font-size: 1.25rem;
+  --small-font-size: 0.813rem;
+}
+
+body {
+  background-color: azures;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+h3 {
+  text-align: center;
+  font-style: bold;
+  padding-bottom: 1rem;
+}
+hr {
+  display: inline-block;
+  border: 20px solid;
+  border-color: black;
 }
 
 .wrapper {
-    padding: 20px;
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+}
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.5rem;
+}
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+.card__article:hover .card__info {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+.card__article:not(:hover) .card__info {
+  animation: remove-data 1s forwards;
+}
+.card__img {
+  width: 328px;
+  height: 466px;
+  border-radius: 1.25rem;
+}
+.card__info {
+  width: 280px;
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: 0.25rem;
+}
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 800;
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+}
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+.card__button:hover {
+  text-decoration: underline;
 }
 
-
-
-/* - - - - - INDEX.PHP - - - - - -*/
-
-
-/* header */
-
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px 30px;
-    background-color: #E1C5BF;
-    box-shadow: 0 5px 15px rgb(112, 104, 104);
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
 }
 
-.header__title {
-    align-items: center;
-
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
 }
 
-.header__list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(0.5rem);
+  }
 }
 
-.header__navcon {
-    list-style: none;
-    padding: 0 20px;
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
 }
-
-.header__link {
-    text-decoration: none;
-    font-size: 13px;
-    color: #494544;
-}
-
-
-
-/* Trending game section */
-
-img {
-    width: 200px;
-    height: 266.66px;
-}
-
-.des {
-    align-items: center;
-    padding: 90px 90px;
-}
-
-.des h1 {
-    text-align: center;
-}
-
-
-.trending__container {
-    display: flex;
-    padding: 20px;
-}
-
-.trending__selection {
-    height: auto;
-    width: auto;
-}
-
-.trending__games {
-    padding: 10px;
-}
-
-
-
