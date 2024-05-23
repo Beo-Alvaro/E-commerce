@@ -27,12 +27,8 @@ h3 {
   font-style: bold;
   padding-bottom: 1rem;
 }
-hr {
-  display: inline-block;
-  border: 20px solid;
-  border-color: black;
-}
 
+/*========== Trending Games ==========*/
 .wrapper {
   display: grid;
   place-items: center;
@@ -138,4 +134,94 @@ hr {
   50% {
     overflow: hidden;
   }
+}
+
+/*========== Explore Games ==========*/
+
+.con {
+  display: flex;
+}
+.con__genre {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+.con__genre h4 {
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+
+.con__select {
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+}
+.con__link {
+  text-decoration: none;
+  color: white;
+}
+.con__link:hover {
+  text-decoration: underline;
+}
+
+.con__img {
+  width: 200px;
+  border-radius: 0.5rem;
+}
+
+.con__button {
+  width: 10rem;
+}
+.cont {
+  margin-left: 1rem;
+  width: 200px;
+  height: 250px;
+  perspective: 800px;
+}
+.cards {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+}
+.cont:hover > .cards {
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+.con__games,
+.front {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+.front {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.con__games {
+  color: white;
+  background-color: #3a3a3a;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+.Image {
+  width: 200px;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+.span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
