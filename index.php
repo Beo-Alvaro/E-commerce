@@ -15,7 +15,8 @@
     </style>
     <title>Notsteam</title>
 </head>
-
+<body>
+<div class="screen">
     <div class="container-fluid p-0">
 
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
@@ -63,9 +64,7 @@
                     <div class="card__info">
                         <span class="card__categ">RPG Stunning Graphics</span>
                         <h2 class="card__title">Genshin Impact</h2>
-                        <a href="#" class="card__button">Buy Now</a>
-
-
+                        <a href="#" class="card__button">Download now</a>
                     </div>
                 </article>
 
@@ -74,9 +73,7 @@
                     <div class="card__info">
                         <span class="card__description">Action Dark Fantasy</span>
                         <h2 class="card__title">Bloodborne</h2>
-                        <a href="#" class="card__button">Buy Now</a>
-
-
+                        <a href="#" class="card__button">Download now</a>
                     </div>
                 </article>
 
@@ -85,22 +82,107 @@
                     <div class="card__info">
                         <span class="card__description">Open World Action-Combat</span>
                         <h2 class="card__title">Wuthering Waves</h2>
-                        <a href="#" class="card__button">Buy Now</a>
-
-
+                        <a href="#" class="card__button">Download now</a>
                     </div>
                 </article>
             </div>
         </div>
-        <div class="wrapper">
-            <h3>Explore Games</h3>
+        <h3 id="expl">Explore Games</h3>
+        <div class="con">
+            <div class="con__genre grid-row--span bg-dark">
+                <h4>Browse By Genre</h4>
+                <div class="con__info">
+                    <ul class="con__place">
+                        <li class="con__select"><a href="" class="con__link">Action</a></li>
+                        <li class="con__select"><a href="" class="con__link">Adventure</a></li>
+                        <li class="con__select"><a href="" class="con__link">Role-Playing</a></li>
+                        <li class="con__select"><a href="" class="con__link">Strategy</a></li>
+                        <li class="con__select"><a href="" class="con__link">Sports</a></li>
+                        <li class="con__select"><a href="" class="con__link">Racing</a></li>
+                        <li class="con__select"><a href="" class="con__link">Simulation</a></li>
+                        <li class="con__select"><a href="" class="con__link">Puzzle</a></li>
+                        <li class="con__select"><a href="" class="con__link">Music</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span">
+                <div class="cont">
+                    <div class="cards">
+                        <div class="front">
+                            <img src="gameposter/darksouls1.jpg" alt="" class="Image">
+                        </div>
+                        <div class="con__games">
+                            <h3>Dark Souls 1</h2>
+                            <button class="con__button">View More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <div class="cards">
+                        <div class="front">
+                            <img src="gameposter/stellarblade.jpg" alt="" class="Image">
+                        </div>
+                        <div class="con__games">
+                            <h3>Stellar Blade</h2>
+                            <button class="con__button">View More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <div class="cards">
+                        <div class="front">
+                            <img src="gameposter/pvz.jpg" alt="" class="Image">
+                        </div>
+                        <div class="con__games">
+                            <h3>Plants Vs Zombies</h2>
+                            <button class="con__button">View More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <div class="cards">
+                        <div class="front">
+                            <img src="gameposter/gtt.jpg" alt="" class="Image">
+                        </div>
+                        <div class="con__games">
+                            <h3>Ghost Of Tsushima</h2>
+                            <button class="con__button">View More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <div class="cards">
+                        <div class="front">
+                            <img src="gameposter/rdr.jpg" alt="" class="Image">
+                        </div>
+                        <div class="con__games">
+                            <h3>Red Dead Redemption</h2>
+                            <button class="con__button">View More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont">
+                    <div class="cards">
+                        <div class="front">
+                            <img src="gameposter/l4d2.jpg" alt="" class="Image">
+                        </div>
+                        <div class="con__games">
+                            <h3>Left 4 Dead 2</h2>
+                            <button class="con__button">View More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-        
+            
 
-    
-
-
-    
+    </div>
+                
+                
+           
+</div>  
+</div>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
