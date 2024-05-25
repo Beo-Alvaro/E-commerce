@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="style.css">
         
     </head>
-    <body>
+    <body class= "loginbody">
         <div class="login">
             
             <div class="rectangle" id="loginbody"> </div>
