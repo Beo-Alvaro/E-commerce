@@ -1,0 +1,234 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: 'Poppins', sans-serif;
+  --h2-font-size: 1.25rem;
+  --small-font-size: 0.813rem;
+}
+
+body {
+  background-color: azures;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+h3 {
+  text-align: center;
+  font-style: bold;
+  padding-bottom: 1rem;
+}
+
+/*========== Trending Games ==========*/
+.wrapper {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+}
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 1.5rem;
+}
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+.card__article:hover .card__info {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+.card__article:not(:hover) .card__info {
+  animation: remove-data 1s forwards;
+}
+.card__img {
+  width: 328px;
+  height: 466px;
+  border-radius: 1.25rem;
+}
+.card__info {
+  width: 280px;
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: 0.25rem;
+}
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 800;
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+}
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+.card__button:hover {
+  text-decoration: underline;
+}
+
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(0.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+
+/*========== Explore Games ==========*/
+
+.con {
+  display: flex;
+}
+.con__genre {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+.con__genre h4 {
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+
+.con__select {
+  list-style-type: none;
+  margin-bottom: 0.5rem;
+}
+.con__link {
+  text-decoration: none;
+  color: white;
+}
+.con__link:hover {
+  text-decoration: underline;
+}
+
+.con__img {
+  width: 200px;
+  border-radius: 0.5rem;
+}
+
+.con__button {
+  width: 10rem;
+  height: 2rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: cornflowerblue;
+}
+.con__button:hover {
+  background-color: rgb(49, 49, 221);
+}
+.cont {
+  margin-left: 1rem;
+  width: 200px;
+  height: 250px;
+  perspective: 800px;
+}
+.cards {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+}
+.cont:hover > .cards {
+  transform: rotateY(180deg);
+}
+.con__games,
+.front {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+}
+.front {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.con__games {
+  color: white;
+  background-color: #2951a5;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+.Image {
+  width: 200px;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+.span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
