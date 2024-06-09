@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +88,7 @@
     </div>
 </body>
 <?php
-require_once('db_connect.php');
+/*require_once('db_connect.php');
 
 function getAdminUsers($conn) {
     $sql = "SELECT * FROM adminUser";
@@ -99,7 +102,7 @@ function addAdminUser($conn, $adminName, $adminDisplayName, $adminEmail, $adminP
     $stmt->bind_param("ssss", $adminName, $adminDisplayName, $adminEmail, $adminPass);
     $stmt->execute();
     $stmt->close();
-}
+}*/
 ?>
 
 </html>
