@@ -10,9 +10,6 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        <?php include "style.css" ?>
-    </style>
     <title>Notsteam</title>
 </head>
 <body>
@@ -21,39 +18,49 @@
 
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
             <div class="container-fluid">
-                <a class="navbar-brand ml-auto" href="#">Login</a>
                 <a class="navbar-brand ml-auto" href="#">Admin</a>
             </div>
         </nav>
 
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
+                
                 <a class="navbar-brand mb-1" href="#">Notsteam</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="admin.php?addgames">ADD GAME</a>
+                            <a class="nav-link" aria-current="page" href="admin.php?adduser">ADD USER</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="admin.php?addgames">ADD CATEGORIES</a>
+                            <a class="nav-link" aria-current="page" href="admin.php?addgames">ADD GAMES</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="admin.php?addgam">ADD CATEGORIES</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="admin.php?addgames">PAYMENT RECORDS</a>
                         </li>
+
                         <li class="nav-item">
                           <a class="nav-link" href="#">USER CONTROL</a>
                         </li>
+
                         <li class="nav-item">
-                          <a class="nav-link " href="#">ALL GAMES
-                          </a>
+                          <a class="nav-link " href="#">GAME CONTROL</a>
                         </li>
+
+                        <li class="nav-item">
+                          <a class="nav-link " href="#">CATEGORIES CONTROL</a>
+                        </li>
+
                     </ul>
-                <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary" type="submit">Search</button>
               </form>
             </div>
           </div>
@@ -64,6 +71,9 @@
                 if(isset($_GET['addgames'])) {
                     include('addgames.php');
                 }
+                if(isset($_GET['adduser'])) {
+                    include('adduser.php');
+                }
                 
             ?>
         </div>
@@ -71,8 +81,5 @@
     </div>
     
 </div>
-        <div class="bg-dark p-1 text-center mt-5">
-        <p class="text-light mt-2 mb-2">All right reserved © 2017 by John Doe</p>
-        </div>  
 </body>
 </html>
