@@ -52,7 +52,7 @@
         </button>
     
         <div class="input-wrapper">
-          <input type="search" name="search" placeholder="Search product" class="search-field">
+          <input type="search" name="search" placeholder="Search product" class="search-field" autocomplete="off">
     
           <button class="search-submit" aria-label="search">
             <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
