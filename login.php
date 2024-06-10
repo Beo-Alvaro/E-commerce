@@ -50,7 +50,7 @@
 
         <div class="rectangle" id="loginbody"> </div>
 
-        <form action="/connection.php" method="post">
+        <form action="login.php" method="post">
             <input type="text" id="login_username" name="login_username" placeholder="Enter your username">
             <input type="text" id="pass_username" name="pass_username" placeholder="Enter your password">
             <input type="submit" value="Login" id="login_button" name="login_button">
