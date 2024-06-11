@@ -52,7 +52,7 @@
         </button>
     
         <div class="input-wrapper">
-          <input type="search" name="search" placeholder="Search product" class="search-field">
+          <input type="search" name="search" placeholder="Search product" class="search-field" autocomplete="off">
     
           <button class="search-submit" aria-label="search">
             <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
@@ -65,17 +65,17 @@
     
         <div class="header-actions">
     
-          <button class="header-action-btn" aria-label="user">
+          <button class="header-action-btn" aria-label="user" value="click-user" name="click-user">
             <ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
           </button>
     
-          <button class="header-action-btn" aria-label="favourite item">
+          <button class="header-action-btn" aria-label="favourite item" value="click-fav" name="click-fav">
             <ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
     
             <span class="btn-badge">0</span>
           </button>
     
-          <button class="header-action-btn" aria-label="cart item">
+          <button class="header-action-btn" aria-label="cart item" value="click-cart" name="click-cart">
             <data class="btn-text" value="0">$0.00</data>
     
             <ion-icon name="bag-add-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
@@ -89,7 +89,7 @@
           <ul class="navbar-list">
     
             <li>
-              <a href="#home" class="navbar-link has-after">Home</a>
+              <a href="#" class="navbar-link has-after">Home</a>
             </li>
     
             <li>
@@ -97,7 +97,7 @@
             </li>
 
             <li>
-              <a href="#allgames" class="navbar-link has-after">All Games</a>
+              <a href="allgames.php" class="navbar-link has-after">All Games</a>
             </li>
     
             <li>
@@ -244,7 +244,7 @@
 <!---
     TRENDING
 ---->
-<section class="section" style="padding-block: 50px;"> 
+<section class="section trending" style="padding-block: 50px;"> 
     <div class="wrapper">
     <h2 class="h2 section-title" style="margin-bottom: 55px">Trending</h2>
         <div class="card__container">

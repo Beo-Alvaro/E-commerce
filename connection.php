@@ -9,3 +9,6 @@ $conn = new mysqli($host, $user, $password, $dbname)
 
 //$con->close();
 ?>
+
+//$con->close();
+?>
