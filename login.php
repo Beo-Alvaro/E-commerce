@@ -41,7 +41,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css">
 
 </head>
 
@@ -52,7 +52,7 @@
 
         <form action="login.php" method="post">
             <input type="text" id="login_username" name="login_username" placeholder="Enter your username">
-            <input type="text" id="pass_username" name="pass_username" placeholder="Enter your password">
+            <input type="password" id="pass_username" name="pass_username" placeholder="Enter your password" required>
             <input type="submit" value="Login" id="login_button" name="login_button">
         </form>
     </div>
