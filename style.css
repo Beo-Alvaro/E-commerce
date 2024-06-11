@@ -142,10 +142,9 @@ html {
   scroll-behavior: smooth;
 }
 
-
-  
 body {
-  background-color: var(--white);
+  background: none;
+  background-image: linear-gradient(to left top, #ffffff, #fbf7fd, #faeff9, #fce6f1, #fedde6, #ffdcdc, #ffddd3, #fbdfcb, #f2e9d0, #e8f3dd, #e3faed, #e6fffd);
   color: var(--gray-web);
   font-size: 1.6rem;
   font-weight: var(--fw-500);
@@ -303,6 +302,7 @@ body {
 .header .input-wrapper,
 .header-action-btn:not(:first-child),
 .navbar {
+  box-shadow: 0 4px 8px -4px rgba(100, 97, 97, 0.712);
   display: none;
 }
 
@@ -748,6 +748,7 @@ body {
 }
 
 .footer {
+  box-shadow: 0 -4px 15px -4px rgba(100, 97, 97, 0.712);
   background-color: var(--cultured-1);
   padding-block: 70px;
 }
