@@ -60,7 +60,7 @@
         </div>
     
         <a href="#" class="logo">
-          <h2>NOTSTEAM</h2>
+          <h2>COPGAMES</h2>
         </a>
     
         <div class="header-actions">
