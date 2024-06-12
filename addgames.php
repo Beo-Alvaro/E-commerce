@@ -19,12 +19,6 @@
         }else{
         $errors[] = "no price input";
         }
-
-        /* if(!empty($_POST['add-picture'])){
-            $gameImg = mysqli_real_escape_string($conn, trim($_POST['add-picture']));
-        }else{
-        $errors[] = "no img input";
-        } */
         
         if(!empty($_POST['add-category'])){
             $gameCategory = mysqli_real_escape_string($conn, trim($_POST['add-category']));
