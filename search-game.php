@@ -1,6 +1,6 @@
 <?php
     include('connection.php');
-    include('funtions.php');
+    include('functions.php');
 
 ?>
 
@@ -117,9 +117,8 @@
 <?php 
 
 insertGame();
+
 ?>
-
-
 
 
 <!---

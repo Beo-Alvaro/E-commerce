@@ -50,14 +50,16 @@
           <span class="line line-2"></span>
           <span class="line line-3"></span>
         </button>
-    
+
+        <form action="search-game.php" method="GET">
         <div class="input-wrapper">
           <input type="search" name="search" placeholder="Search product" class="search-field" autocomplete="off">
     
-          <button class="search-submit" aria-label="search">
+          <button class="search-submit" name="search_submit" aria-label="search">
             <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
           </button>
         </div>
+        </form>
     
         <a href="#" class="logo">
           <h2>COPGAMES</h2>
