@@ -58,10 +58,12 @@
             <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
           </button>
         </div>
-    
-        <a href="#" class="logo">
+
+        <img src="logo/logo.png" alt="Logo" class="logo">
+          
+        <!--<a href="#" class="logo">
           <h2>NOTSTEAM</h2>
-        </a>
+        </a>-->
     
         <div class="header-actions">
     
