@@ -29,8 +29,8 @@ while($row=mysqli_fetch_assoc($result_query)) {
 
                   <div class='card-actions'>
 
-                    <button class='action-btn' aria-label='add to cart' name='add-to-card'>
-                      <ion-icon name='bag-add-outline' aria-hidden='true'></ion-icon>
+                    <button class='action-btn' aria-label='add to cart' name='add-to-cart'>
+                      <a href='allgames.php?cart-game=$game_id'><ion-icon name='bag-add-outline' aria-hidden='true' aria-hidden='true'></ion-icon></a>
                     </button>
 
                     <button class='action-btn' aria-label='add to whishlist'>
@@ -109,4 +109,89 @@ function addGames() {
 
 }
 
+function getIPAddress() {  
+  //whether ip is from the share internet  
+   if(!empty($_SERVER['HTTP_CLIENT_IP'])) {  
+              $ip = $_SERVER['HTTP_CLIENT_IP'];  
+      }  
+  //whether ip is from the proxy  
+  elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {  
+              $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];  
+   }  
+//whether ip is from the remote address  
+  else{  
+           $ip = $_SERVER['REMOTE_ADDR'];  
+   }  
+   return $ip;  
+}  
+ 
+
+
+
+function cart() {
+  if(isset($_GET['cart-game'])) {
+    global $con;
+
+    $ip = getIPAddress();
+    $game_id = $_GET['cart-game'];
+    $select = "SELECT * FROM `cart` WHERE IPAdrress='$ip' AND cartID=$game_id";
+    $result_query=mysqli_query($con,$select);
+    $num_rows = mysqli_num_rows($result_query);
+    if($num_rows > 0) {
+        echo"<script>alert('This game is already added')</script>";
+        echo"<script>window.open('allgames.php','_self')</script>";
+    }
+    else {
+      $insert_game="INSERT INTO `cart` (cartID, IPAdrress)
+      VALUES ($game_id, '$ip')";
+      $result_query=mysqli_query($con, $insert_game);
+      echo"<script>alert('Added to cart')</script>";
+      echo"<script>window.open('allgames.php','_self')</script>";
+    }
+  }
+}
+
+function cart_item() {
+
+    if(isset($_GET['cart-game'])) {
+    global $con;
+    $ip = getIPAddress();
+    $select = "SELECT * FROM `cart` WHERE IPAdrress='$ip'";
+    $result_query=mysqli_query($con,$select);
+    $cart_item = mysqli_num_rows($result_query);
+    } else {
+      global $con;
+      $ip = getIPAddress();
+      $select = "SELECT * FROM `cart` WHERE IPAdrress='$ip'";
+      $result_query=mysqli_query($con,$select);
+      $cart_item = mysqli_num_rows($result_query);
+
+    }
+    echo $cart_item;
+
+}
+
+
+function total_cart_price() {
+  global $con;
+
+  $get_ip = getIPAddress();
+  $total = 0;
+  $cart_query="SELECT * FROM `cart` WHERE IPAdrress=$get_ip";
+  $result_query=mysqli_query($con,$cart_query);
+  while($row = mysqli_fetch_array($result_query)) {
+    $game_id = $_row['cartID'];
+    $select_game="SELECT * FROM `game` WHERE gameID=$game_id";
+    $result_game=mysqli_query($con,$select_game);
+    while($row_game = mysqli_fetch_array($result_game)) {
+      $game_price = array($row_game['gamePrice']);
+      $game_val = array_sum($game_price);
+
+      $total += $game_val;
+
+    }
+  }
+  echo $total;
+
+}
 ?>
