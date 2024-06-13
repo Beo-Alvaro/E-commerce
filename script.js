@@ -56,19 +56,19 @@ const headerActive = function () {
 
 addEventOnElem(window, 'scroll', headerActive);
 
-let lastScrolledPos = 0;
+//let lastScrolledPos = 0;
 
-const headerSticky = function () {
-  if (lastScrolledPos >= window.scrollY) {
-    header.classList.remove('header-hide');
-  } else {
-    header.classList.add('header-hide');
-  }
+//const headerSticky = function () {
+ // if (lastScrolledPos >= window.scrollY) {
+   // header.classList.remove('header-hide');
+ // } else {
+ //   header.classList.add('header-hide');
+//  }
 
-  lastScrolledPos = window.scrollY;
-};
+//  lastScrolledPos = window.scrollY;
+//};
 
-addEventOnElem(window, 'scroll', headerSticky);
+//addEventOnElem(window, 'scroll', headerSticky);
 
 /**
  * scroll reveal effect
