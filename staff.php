@@ -24,7 +24,7 @@
 
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark ">
             <div class="container-fluid">
-                <a class="navbar-brand ml-auto" href="#">Admin</a>
+                <a class="navbar-brand ml-auto" href="#">Game Developer</a>
             </div>
         </nav>
 
@@ -40,23 +40,11 @@
                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="admin.php?addgames">ADD GAME</a>
+                            <a class="nav-link" aria-current="page" href="staff.php?addgames">ADD GAME</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="admin.php?adduser">ADD USER</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="admin.php?display-payment">PAYMENT RECORDS</a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="admin.php?control-user">USER CONTROL</a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a class="nav-link " aria-current="page" href="admin.php?control-game">GAME CONTROL</a>
+                          <a class="nav-link " aria-current="page" href="staff.php?control-game">GAME CONTROL</a>
                         </li>
                         
                 </ul>
@@ -70,32 +58,12 @@
                     include('addgames.php');
                 }
 
-                if(isset($_GET['adduser'])) {
-                    include('adduser.php');
-                }
-
-                if(isset($_GET['addcateg'])) {
-                    include('addcateg.php');
-                }
-
-                if(isset($_GET['display-payment'])) {
-                    include('displaypay.php');
-                }
-
                 if(isset($_GET['control-game'])) {
                     include('controlgame.php');
                 }
 
-                if(isset($_GET['control-user'])) {
-                    include('controluser.php');
-                }
-
                 if(isset($_GET['edit_game'])) {
                     include('edit_game.php');
-                }
-
-                if(isset($_GET['delete_game'])) {
-                    include('delete_game.php');
                 }
                 
             ?>

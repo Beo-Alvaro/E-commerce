@@ -68,7 +68,7 @@
         <div class="header-actions">
     
           <button class="header-action-btn" aria-label="user" value="click-user" name="click-user">
-            <ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+            <a href="login.php"><ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
           </button>
     
           <button class="header-action-btn" aria-label="favourite item" value="click-fav" name="click-fav">

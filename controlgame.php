@@ -11,7 +11,7 @@
 
 <body>
 
-<h3 class="text-center mb-5">USER CONTROL</h3>
+<h3 class="text-center mb-5">GAME CONTROL</h3>
 
 <table class="table table-bordered mt-5">
 
@@ -68,7 +68,7 @@ while($row=mysqli_fetch_assoc($result_query)) {
             <td><?php echo "$".$game_price.".00"; ?></td>
             <td>1</td>
             <td><a href="admin.php?edit_game=<?php echo $game_id?>"><i class='fa-solid fa-square-pen' ></i></a></td>
-            <td><i class='fa fa-trash' aria-hidden='true'></i></td>
+            <td><a href="admin.php?delete_game=<?php echo $game_id?>"><i class='fa fa-trash' aria-hidden='true'></i></a></td>
 
         </tr>"
 <?php

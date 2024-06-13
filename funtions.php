@@ -18,14 +18,7 @@ while($row=mysqli_fetch_assoc($result_query)) {
 
 
 
-  echo"<div class='title-wrapper' style='text-align: center; margin-top: 50px;'>
-            <h2 class='h2 section-title'>ALL GAMES</h2>
-            </div>
-
-
-    <section class='section shop' id='shop' aria-label='shop' data-section>
-
-        <div class='container' style='display: flex; gap:2%; flex-wrap:wrap;''>
+  echo"
 
           
               <div class='shop-card' style='width: 23%; min-width: 250px;'>
@@ -77,11 +70,9 @@ while($row=mysqli_fetch_assoc($result_query)) {
 
                 </div>
 
-              </div>
+              </div>";
 
 
-        </div>
-</section>";
 }
 
 }
