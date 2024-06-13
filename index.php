@@ -54,25 +54,27 @@
                     <span class="line line-3"></span>
                 </button>
 
-                <div class="input-wrapper">
-                    <input type="search" name="search" placeholder="Search product" class="search-field"
-                        autocomplete="off">
+                <form action="search-game.php" method="GET">
+                    <div class="input-wrapper">
+                        <input type="search" name="search" placeholder="Search product" class="search-field"
+                            autocomplete="off">
 
-                    <button class="search-submit" aria-label="search">
-                        <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-                    </button>
-                </div>
+                        <button class="search-submit" name="search_submit" aria-label="search">
+                            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+                        </button>
+                    </div>
+                </form>
 
-                <img src="logo/logo.png" alt="Logo" class="logo">
-
-                <!--<a href="#" class="logo">
-          <h2>NOTSTEAM</h2>
-        </a>-->
+                <a href="#" class="logo">
+                    <h2>COPGAMES</h2>
+                </a>
 
                 <div class="header-actions">
 
                     <button class="header-action-btn" aria-label="user" value="click-user" name="click-user">
-                        <ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+                        <a href="login.php">
+                            <ion-icon name="person-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+                        </a>
                     </button>
 
                     <button class="header-action-btn" aria-label="favourite item" value="click-fav" name="click-fav">

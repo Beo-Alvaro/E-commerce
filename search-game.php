@@ -1,6 +1,6 @@
 <?php
     include('connection.php');
-    include('funtions.php');
+    include('functions.php');
 
 ?>
 
@@ -103,8 +103,6 @@
             <li>
               <a href="allgames.php" class="navbar-link has-after">All Games</a>
             </li>
-
-            
     
           </ul>
         </nav>
@@ -116,29 +114,11 @@
 <!---
     ITEMS
 ---->
- 
+<?php 
 
-<section class='section shop' id='shop' aria-label='shop' data-section>
+insertGame();
 
-    <div class="genre"><button class="dropbtn">Genre</button>
-      <div class="dropdown-content">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
-      </div>
-    </div>
-
-        <div class='container' style='display: flex; gap:2%; flex-wrap:wrap;''>
-
-          <?php 
-              insertGame();
-          ?>
-
-        </div>
-</section>
-
-
-
+?>
 
 
 <!---

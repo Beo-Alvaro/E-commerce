@@ -1,0 +1,13 @@
+<tr class='text-center'>
+            
+            <td>1</td>
+            <td>Dark Souls 1</td>
+            <td>Action</td>
+            <td>darksouls.jpeg</td>
+            <td>darksouls</td>
+            <td>$59.00</td>
+            <td>1</td>
+            <td><i class='fa-solid fa-square-pen'></i></td>
+            <td><i class='fa fa-trash' aria-hidden='true'></i></td>
+
+        </tr>

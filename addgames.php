@@ -126,3 +126,8 @@
         </div>
     </div>
 </form>
+
+<?php 
+
+addGames();
+?>
