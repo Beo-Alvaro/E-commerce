@@ -32,8 +32,14 @@
         $errors[] = "no password chosen";
         }
 
+        if(!empty($_POST['add-accounttype'])){
+            $userType = mysqli_real_escape_string($conn, trim($_POST['add-accounttype']));
+        }else{
+        $errors[] = "no accounttype chosen";
+        }
+
         if(empty($errors)){
-            $query = "INSERT INTO customerUser(userFname, userLname, userName, userEmail, userPass, accountType) VALUES ('$userfname','$userlname','$userusername','$useremail','$userpassword','user')";
+            $query = "INSERT INTO customerUser(userFname, userLname, userName, userEmail, userPass, accountType) VALUES ('$userfname','$userlname','$userusername','$useremail','$userpassword','$userType')";
             $result = mysqli_query($conn,$query);
             echo '<script> alert("User added successfully");
             window.location.href="admin.php"; </script>';

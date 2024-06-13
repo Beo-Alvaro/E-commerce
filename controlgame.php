@@ -41,7 +41,7 @@
             <?php 
 
 $get_games="SELECT * FROM `game`";
-$result_query=mysqli_query($con, $get_games);
+$result_query=mysqli_query($conn, $get_games);
 while($row=mysqli_fetch_assoc($result_query)) {
   $game_title     =  $row['gameName'];
   $game_desc      =  $row['gameDesciption'];
@@ -58,7 +58,7 @@ while($row=mysqli_fetch_assoc($result_query)) {
                 <td><?php
 
                 $get_genre="SELECT * FROM `category` WHERE categoryID=$game_genre";
-                $result_genre=mysqli_query($con, $get_genre);
+                $result_genre=mysqli_query($conn, $get_genre);
                 while($row=mysqli_fetch_assoc($result_genre)) {
                     $genre_name = $row['categoryName'];
                 }
