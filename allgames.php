@@ -88,7 +88,7 @@
     
             <ion-icon name="bag-add-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
     
-            <span class="btn-badge">0</span>
+            <span class="btn-badge"><?php cart_item();?></span>
           </button>
     
         </div>
@@ -120,13 +120,13 @@
 
 <section class='section shop' id='shop' aria-label='shop' data-section>
 
-    <div class="genre"><button class="dropbtn">Genre</button>
+    <!--<div class="genre"><button class="dropbtn">Genre</button>
       <div class="dropdown-content">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
       </div>
-    </div>
+    </div> -->
 
         <div class='container' style='display: flex; gap:2%; flex-wrap:wrap;''>
 
@@ -137,7 +137,10 @@
         </div>
 </section>
 
+<?php 
 
+  cart();
+?>
 
 
 

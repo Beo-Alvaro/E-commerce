@@ -72,7 +72,7 @@
           </button>
     
           <button class="header-action-btn" aria-label="favourite item" value="click-fav" name="click-fav">
-            <ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+            <a href="cart.php"><ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
     
             <span class="btn-badge">0</span>
           </button>
@@ -80,7 +80,7 @@
           <button class="header-action-btn" aria-label="cart item" value="click-cart" name="click-cart">
             <data class="btn-text" value="0">$0.00</data>
     
-            <ion-icon name="bag-add-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+            <a href="cart.php"><ion-icon name="bag-add-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
     
             <span class="btn-badge">0</span>
           </button>
