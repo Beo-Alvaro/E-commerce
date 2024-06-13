@@ -90,3 +90,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 /* ========END OF LOGIN STYLE=======*/
+
+.logo{
+  position: absolute;
+  top:8%;
+  left:43.33%;
+  width: 80px;
+  height: auto;
+  margin-bottom: 5px;
+}
