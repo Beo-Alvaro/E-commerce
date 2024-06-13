@@ -8,7 +8,7 @@
         $game_id = $_GET['edit_game'];
 
         $get_game = "SELECT * FROM `game` WHERE gameID=$game_id";
-        $result_query=mysqli_query($con, $get_game);
+        $result_query=mysqli_query($conn, $get_game);
         $row=mysqli_fetch_assoc($result_query);
         $game_title     =  $row['gameName'];
         $game_desc      =  $row['gameDesciption'];
@@ -19,7 +19,7 @@
         $game_id        =  $row['gameID'];
 
         $get_genre="SELECT * FROM `category` WHERE categoryID=$game_genre";
-                $result_genre=mysqli_query($con, $get_genre);
+                $result_genre=mysqli_query($conn, $get_genre);
                 while($row=mysqli_fetch_assoc($result_genre)) {
                     $genre_name = $row['categoryName'];
                 }
@@ -29,32 +29,32 @@
                 require_once('connection.php');
                 $errors = array();
                 if(!empty($_POST['add-game'])){
-                    $gameName = mysqli_real_escape_string($conn, trim($_POST['add-game']));
+                    $gameName = mysqli_real_escape_string($connn, trim($_POST['add-game']));
                 }else{
                 $errors[] = "no game input";
                 }
         
                 if(!empty($_POST['add-desc'])){
-                    $gameDesc = mysqli_real_escape_string($conn, trim($_POST['add-desc']));
+                    $gameDesc = mysqli_real_escape_string($connn, trim($_POST['add-desc']));
                 }else{
                 $errors[] = "no desc input";
                 }
         
                 if(!empty($_POST['add-price'])){
-                    $gamePrice = mysqli_real_escape_string($conn, trim($_POST['add-price']));
+                    $gamePrice = mysqli_real_escape_string($connn, trim($_POST['add-price']));
                 }else{
                 $errors[] = "no price input";
                 }
         
                 if(!empty($_POST['add-category'])){
-                    $gameCategory = mysqli_real_escape_string($conn, trim($_POST['add-category']));
+                    $gameCategory = mysqli_real_escape_string($connn, trim($_POST['add-category']));
                 }else{
                 $errors[] = "no category chosen";
                 }
         
                 if(empty($errors)){
                     $query = "INSERT INTO game(gameName, gameDesciption, gamePrice, categoryID) VALUES ('$gameName','$gameDesc','$gamePrice','$gameCategory')";
-                    $result = mysqli_query($conn,$query);
+                    $result = mysqli_query($connn,$query);
                     echo '<script> alert("Game added successfully");
                     window.location.href="admin.php"; </script>';
         
@@ -93,7 +93,7 @@
             <option value="">Select Genre</option>
             <?php 
                 $select_all ="SELECT * FROM `category`";
-                $result_cate = mysqli_query($con, $select_all);
+                $result_cate = mysqli_query($conn, $select_all);
                 while($row_cate=mysqli_fetch_assoc($result_cate)) {
 
                     $category_name = $row_cate['categoryName'];
