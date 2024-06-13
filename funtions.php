@@ -180,7 +180,7 @@ function total_cart_price() {
   $cart_query="SELECT * FROM `cart` WHERE IPAdrress=$get_ip";
   $result_query=mysqli_query($con,$cart_query);
   while($row = mysqli_fetch_array($result_query)) {
-    $game_id = $_row['cartID'];
+    $game_id = $row['cartID'];
     $select_game="SELECT * FROM `game` WHERE gameID=$game_id";
     $result_game=mysqli_query($con,$select_game);
     while($row_game = mysqli_fetch_array($result_game)) {
