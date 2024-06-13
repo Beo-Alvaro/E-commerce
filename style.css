@@ -302,7 +302,6 @@ body {
 .header .input-wrapper,
 .header-action-btn:not(:first-child),
 .navbar {
-  box-shadow: 0 4px 8px -4px rgba(100, 97, 97, 0.712);
   display: none;
 }
 
@@ -1280,6 +1279,7 @@ body {
   }
 
   .navbar {
+    box-shadow: 0 4px 8px -4px rgba(100, 97, 97, 0.712);
     position: absolute;
     bottom: 0;
     left: 0;
