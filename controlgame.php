@@ -4,6 +4,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,50 +12,50 @@
 
 <body>
 
-<h3 class="text-center mb-5">GAME CONTROL</h3>
+    <h3 class="text-center mb-5">GAME CONTROL</h3>
 
-<table class="table table-bordered mt-5">
+    <table class="table table-bordered mt-5">
 
-    <thead class="bg-info">
+        <thead class="bg-info">
 
-        <tr class="text-center">
+            <tr class="text-center">
 
-            <th>Game ID</th>
-            <th>Game Name</th>
-            <th>Game Category</th>
-            <th>Game Picture</th>
-            <th>Game Keyword</th>
-            <th>Game Price</th>
-            <th>Total Sold</th>
-            <th>Edit</th>
-            <th>Delete</th>
+                <th>Game ID</th>
+                <th>Game Name</th>
+                <th>Game Category</th>
+                <th>Game Picture</th>
+                <th>Game Keyword</th>
+                <th>Game Price</th>
+                <th>Total Sold</th>
+                <th>Edit</th>
+                <th>Delete</th>
 
 
 
-        </tr>
+            </tr>
 
-    </thead>
+        </thead>
 
-    <tbody class="bg-dark text-light">
+        <tbody class="bg-dark text-light">
 
-<?php 
+            <?php 
 
 $get_games="SELECT * FROM `game`";
 $result_query=mysqli_query($con, $get_games);
 while($row=mysqli_fetch_assoc($result_query)) {
   $game_title     =  $row['gameName'];
   $game_desc      =  $row['gameDesciption'];
-  $game_keyword   =  $row['gameKeyword'];
+  $game_keyword   =  $row['gameKEY'];
   $game_genre     =  $row['categoryID'];
   $game_image     =  $row['gamePicture'];
   $game_price     =  $row['gamePrice'];
   $game_id        =  $row['gameID']; 
 ?>
-  <tr class='text-center'>
-            
-            <td><?php echo $game_id; ?></td>
-            <td><?php echo $game_title; ?></td>
-            <td><?php
+            <tr class='text-center'>
+
+                <td><?php echo $game_id; ?></td>
+                <td><?php echo $game_title; ?></td>
+                <td><?php
 
                 $get_genre="SELECT * FROM `category` WHERE categoryID=$game_genre";
                 $result_genre=mysqli_query($con, $get_genre);
@@ -63,30 +64,28 @@ while($row=mysqli_fetch_assoc($result_query)) {
                 }
                 echo $genre_name;                    
             ?></td>
-            <td><?php echo $game_image; ?></td>
-            <td><?php echo $game_keyword; ?></td>
-            <td><?php echo "$".$game_price.".00"; ?></td>
-            <td>1</td>
-            <td><a href="admin.php?edit_game=<?php echo $game_id?>"><i class='fa-solid fa-square-pen' ></i></a></td>
-            <td><a href="admin.php?delete_game=<?php echo $game_id?>"><i class='fa fa-trash' aria-hidden='true'></i></a></td>
+                <td><?php echo $game_image; ?></td>
+                <td><?php echo $game_keyword; ?></td>
+                <td><?php echo "$".$game_price.".00"; ?></td>
+                <td>1</td>
+                <td><a href="admin.php?edit_game=<?php echo $game_id?>"><i class='fa-solid fa-square-pen'></i></a></td>
+                <td><a href="admin.php?delete_game=<?php echo $game_id?>"><i class='fa fa-trash'
+                            aria-hidden='true'></i></a></td>
 
-        </tr>"
-<?php
+            </tr>"
+            <?php
 }   
 ?>
 
 
 
-        
 
-    </tbody>
 
-</table>
+        </tbody>
 
-    
+    </table>
+
+
 </body>
+
 </html>
-
-
-
-
