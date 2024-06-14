@@ -47,8 +47,9 @@
 <body class="login_body">
     <div class="login">
 
-        <div class="rectangle" id="loginbody"> 
-        <img src="logo/logo.png" alt="Logo" class="logo"> </div>
+        <div class="rectangle" id="loginbody">
+            <img src="logo/logo.png" alt="Logo" class="logo">
+        </div>
 
         <form action="login.php" method="post">
             <input type="text" id="login_username" name="login_username" placeholder="Enter your username">

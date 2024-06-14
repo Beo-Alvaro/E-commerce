@@ -65,9 +65,10 @@
                     </div>
                 </form>
 
-                <a href="#" class="logo">
-                    <h2>COPGAMES</h2>
-                </a>
+                <img src="logo/logo.png" alt="Logo" class="logo">
+                <!--<a href="#" class="logo">
+          <h2>COPGAMES</h2>
+        </a>-->
 
                 <div class="header-actions">
 
@@ -78,9 +79,7 @@
                     </button>
 
                     <button class="header-action-btn" aria-label="favourite item" value="click-fav" name="click-fav">
-                        <a href="cart.php">
-                            <ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
-                        </a>
+                        <ion-icon name="star-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
 
                         <span class="btn-badge">0</span>
                     </button>
@@ -88,9 +87,7 @@
                     <button class="header-action-btn" aria-label="cart item" value="click-cart" name="click-cart">
                         <data class="btn-text" value="0">$0.00</data>
 
-                        <a href="cart.php">
-                            <ion-icon name="bag-add-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
-                        </a>
+                        <ion-icon name="bag-add-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
 
                         <span class="btn-badge">0</span>
                     </button>

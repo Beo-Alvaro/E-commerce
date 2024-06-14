@@ -59,11 +59,11 @@ addEventOnElem(window, 'scroll', headerActive);
 //let lastScrolledPos = 0;
 
 //const headerSticky = function () {
- // if (lastScrolledPos >= window.scrollY) {
+  //if (lastScrolledPos >= window.scrollY) {
    // header.classList.remove('header-hide');
  // } else {
- //   header.classList.add('header-hide');
-//  }
+   // header.classList.add('header-hide');
+ // }
 
 //  lastScrolledPos = window.scrollY;
 //};
