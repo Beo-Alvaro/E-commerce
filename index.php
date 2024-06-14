@@ -60,10 +60,11 @@
           </button>
         </div>
         </form>
-    
-        <a href="#" class="logo">
+
+        <img src="logo/logo.png" alt="Logo" class="logo">
+        <!--<a href="#" class="logo">
           <h2>COPGAMES</h2>
-        </a>
+        </a>-->
     
         <div class="header-actions">
     
