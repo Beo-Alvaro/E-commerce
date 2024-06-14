@@ -66,12 +66,12 @@
 
 $get_ip = getIPAddress();
   $total = 0;
-  $cart_query="SELECT * FROM `cart` WHERE IPAdrress='$get_ip'";
-  $result_query=mysqli_query($con,$cart_query);
+  $cart_query="SELECT * FROM `cart` WHERE cartIPadd='$get_ip'";
+  $result_query=mysqli_query($conn,$cart_query);
   while($row = mysqli_fetch_array($result_query)) {
     $game_id = $row['cartID'];
     $select_game="SELECT * FROM `game` WHERE gameID='$game_id'";
-    $result_game=mysqli_query($con,$select_game);
+    $result_game=mysqli_query($conn,$select_game);
     while($row_game = mysqli_fetch_array($result_game)) {
       $per_price = $row_game['gamePrice'];
       $game_title = $row_game['gameName'];
@@ -111,7 +111,7 @@ $get_ip = getIPAddress();
     if(isset($_POST['remove_game'])) {
         foreach($_POST['removeitem'] as $remove_id) {
             $delete_query ="DELETE FROM `cart` WHERE cartID=$remove_id";
-            $result = mysqli_query($con, $delete_query);
+            $result = mysqli_query($conn, $delete_query);
             if($result) {
                 echo"<script>window.open('cart.php','_self')</script>";
             }
