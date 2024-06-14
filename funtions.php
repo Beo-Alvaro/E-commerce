@@ -98,7 +98,7 @@ function addGames() {
     else {
         move_uploaded_file($temp_image,"gameposter/$game_image");
     }
-    $insert_games="INSERT INTO `game`(gameName, gameDesciption, gamePrice, categoryID, gamePicture, gameKEY)
+    $insert_games="INSERT INTO `game`(gameName, gameDesciption, gamePrice, categoryID, gamePicture, gameKeyword)
     VALUES ('$game_title','$game_desc',$game_price,$game_genre,'$game_image', '$game_keyword')";
     $result_query=mysqli_query($con,$insert_games);
     if($result_query) {

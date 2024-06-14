@@ -57,8 +57,8 @@ while($row=mysqli_fetch_assoc($result_query)) {
                 <td><?php echo $userName; ?></td>
                 <td><?php echo $userEmail; ?></td>
                 <td><?php echo $accountType; ?></td>
-                <td><a href="admin.php?edit_game=<?php echo $game_id?>"><i class='fa-solid fa-square-pen'></i></a></td>
-                <td><a href="admin.php?delete_game=<?php echo $game_id?>"><i class='fa fa-trash'
+                <td><a href="admin.php?edit_game=<?php echo $userID?>"><i class='fa-solid fa-square-pen'></i></a></td>
+                <td><a href="admin.php?delete_game=<?php echo $userID?>"><i class='fa fa-trash'
                             aria-hidden='true'></i></a></td>
 
             </tr>

@@ -10,7 +10,7 @@
         $row=mysqli_fetch_assoc($result_query);
         $game_title     =  $row['gameName'];
         $game_desc      =  $row['gameDesciption'];
-        $game_keyword   =  $row['gameKEY'];
+        $game_keyword   =  $row['gameKeyword'];
         $game_genre     =  $row['categoryID'];
         $game_image     =  $row['gamePicture'];
         $game_price     =  $row['gamePrice'];
@@ -47,7 +47,8 @@
     <div class="form-outline w-50 mb-4 mt-4 m-auto">
         <label for="game_keyword" class="form-label">Game Keyword</label>
         <input value="<?php echo $game_keyword?>" type="text" id="game_keyword" class="form-control"
-            placeholder="Enter Game Keyword" name="game_keyword" aria-label="gamekey" aria-describedby="addon-wrapping">
+            placeholder="Enter Game Keyword" name="game_keyword" aria-label="gameKeyword"
+            aria-describedby="addon-wrapping">
     </div>
 
     <div class="form-outline w-50 mb-4 mt-4 m-auto">
