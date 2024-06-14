@@ -72,7 +72,7 @@ while($row=mysqli_fetch_assoc($result_query)) {
                 <td><a href="admin.php?delete_game=<?php echo $game_id?>"><i class='fa fa-trash'
                             aria-hidden='true'></i></a></td>
 
-            </tr>"
+            </tr>
             <?php
 }   
 ?>

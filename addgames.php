@@ -28,32 +28,44 @@
         if ($_SERVER["REQUEST_METHOD"]=="POST"){
                 require_once('connection.php');
                 $errors = array();
-                if(!empty($_POST['add-game'])){
-                    $gameName = mysqli_real_escape_string($connn, trim($_POST['add-game']));
+                if(!empty($_POST['game_title'])){
+                    $gameName = mysqli_real_escape_string($connn, trim($_POST['game_title']));
                 }else{
-                $errors[] = "no game input";
+                $errors[] = "no title input";
                 }
         
-                if(!empty($_POST['add-desc'])){
-                    $gameDesc = mysqli_real_escape_string($connn, trim($_POST['add-desc']));
+                if(!empty($_POST['game_desc'])){
+                    $gameDesc = mysqli_real_escape_string($connn, trim($_POST['game_desc']));
                 }else{
                 $errors[] = "no desc input";
                 }
         
-                if(!empty($_POST['add-price'])){
-                    $gamePrice = mysqli_real_escape_string($connn, trim($_POST['add-price']));
+                if(!empty($_POST['game_keyword'])){
+                    $game_keyword = mysqli_real_escape_string($connn, trim($_POST['game_keyword']));
                 }else{
-                $errors[] = "no price input";
+                $errors[] = "no keyword input";
                 }
         
-                if(!empty($_POST['add-category'])){
-                    $gameCategory = mysqli_real_escape_string($connn, trim($_POST['add-category']));
+                if(!empty($_POST['game_genre'])){
+                    $game_genre = mysqli_real_escape_string($connn, trim($_POST['game_genre']));
                 }else{
-                $errors[] = "no category chosen";
+                $errors[] = "no genre chosen";
+                }
+
+                if(!empty($_POST['game_image'])){
+                    $game_image = mysqli_real_escape_string($connn, trim($_POST['game_image']));
+                }else{
+                $errors[] = "no img chosen";
+                }
+                
+                if(!empty($_POST['game_price'])){
+                    $game_price = mysqli_real_escape_string($connn, trim($_POST['game_price']));
+                }else{
+                $errors[] = "no price set";
                 }
         
                 if(empty($errors)){
-                    $query = "INSERT INTO game(gameName, gameDesciption, gamePrice, categoryID) VALUES ('$gameName','$gameDesc','$gamePrice','$gameCategory')";
+                    $query = "INSERT INTO game(gameName, gameDesciption, gameKEY, categoryID, gamePicture, gamePrice) VALUES ('$gameName','$gameDesc','$game_keyword','$game_genre','$game_image','$game_price')";
                     $result = mysqli_query($connn,$query);
                     echo '<script> alert("Game added successfully");
                     window.location.href="admin.php"; </script>';
@@ -100,7 +112,6 @@
                     $category_id = $row_cate['categoryID'];
 
                     echo "<option value='$category_id'>$category_name</option>";
-
                 }
                 ?>
         </select>
@@ -117,7 +128,6 @@
         <input type="text" id="game_price" class="form-control" placeholder="Enter Game Price" name="game_price"
             aria-label="gamedesc" aria-describedby="addon-wrapping">
     </div>
-
 
     <div class="form-outline w-50 mb-4 mt-4 m-auto">
         <div class="input-group flex-nowrap">
