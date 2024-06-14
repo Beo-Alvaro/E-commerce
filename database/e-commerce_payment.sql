@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: e-commerce
+-- Host: localhost    Database: e-commerce
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.32-MariaDB
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,16 +23,16 @@ DROP TABLE IF EXISTS `payment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payment` (
-  `paymentID` int(11) NOT NULL AUTO_INCREMENT,
+  `paymentID` int NOT NULL AUTO_INCREMENT,
   `paymentDate` datetime DEFAULT NULL,
-  `userID` int(11) DEFAULT NULL,
-  `gameID` int(11) DEFAULT NULL,
+  `userID` int DEFAULT NULL,
+  `gameID` int DEFAULT NULL,
   PRIMARY KEY (`paymentID`),
   KEY `userID` (`userID`),
   KEY `gameID` (`gameID`),
   CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `customeruser` (`userID`),
   CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-13 21:31:25
+-- Dump completed on 2024-06-13 23:23:13
