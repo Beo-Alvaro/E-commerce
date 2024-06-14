@@ -1,3 +1,10 @@
+<?php
+    include('connection.php');
+    include('funtions.php');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -251,30 +258,40 @@
     <div class="wrapper">
     <h2 class="h2 section-title" style="margin-bottom: 55px">Trending</h2>
         <div class="card__container">
-            <article class="card__article">
-                <img src="gameposter/genshin.jpg" alt="genshin impact" class="card__img">
-                <div class="card__info">
-                    <span class="card__description">RPG Stunning Graphics</span>
-                    <h2 class="card__title">Genshin Impact</h2>
-                    <a href="#" class="card__button">Download now</a>
+<?php
+        if(!isset($_GET['categ'])) {
+$selec_query="SELECT * FROM `game` ORDER BY views DESC";
+$counter = 0;
+$result_query=mysqli_query($con, $selec_query);
+if($counter >=0){
+while($row=mysqli_fetch_assoc($result_query)) {
+  $game_title     =  $row['gameName'];
+  $game_desc      =  $row['gameDesciption'];
+  $game_keyword   =  $row['gameKeyword'];
+  $game_genre     =  $row['categoryID'];
+  $game_image     =  $row['gamePicture'];
+  $game_price     =  $row['gamePrice'];
+  $game_id        =  $row['gameID'];
+  $game_view        =  $row['views'];
+  $counter++;
+  if($counter == 4) {
+    break;
+  }
+
+
+
+           echo" <article class='card__article'>
+                <img src='gameposter/$game_image' alt='genshin impact' class='card__img'>
+                <div class='card__info'>
+                    <span class='card__description'>TOP GAME</span>
+                    <h2 class='card__title'>$game_title</h2>
+                    <a href='' class='card__button'>Get now</a>
                 </div>
-            </article>
-            <article class="card__article">
-                <img src="gameposter/bloodborne.jpg" alt="" class="card__img">
-                <div class="card__info">
-                    <span class="card__description">Action Dark Fantasy</span>
-                    <h2 class="card__title">Bloodborne</h2>
-                    <a href="#" class="card__button">Download now</a>
-                </div>
-            </article>
-            <article class="card__article">
-                <img src="gameposter/wuthering.jpg" alt="" class="card__img">
-                <div class="card__info">
-                    <span class="card__description">Open World Action-Combat</span>
-                    <h2 class="card__title">Wuthering Waves</h2>
-                    <a href="#" class="card__button">Download now</a>
-                </div>
-            </article>
+            </article>";
+          }
+        }
+      }
+            ?>
         </div>
 
     </div>
@@ -299,326 +316,15 @@
 
           <ul class="has-scrollbar">
 
-            <li class="scrollbar-item">
-              <div class="shop-card">
-
-                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
-                  <img src="gameposter/stellarblade.jpg" width="540" height="720" loading="lazy"
-                    alt="stellar blade" class="img-cover">
-
-                  <div class="card-actions">
-
-                    <button class="action-btn" aria-label="add to cart">
-                      <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="add to whishlist">
-                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="compare">
-                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                  </div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="price">
-                    <span class="span">$50.00</span>
-                  </div>
-
-                  <h3>
-                    <a href="#" class="card-title">Stellar Blade</a>
-                  </h3>
-
-                  <div class="card-rating">
-
-                    <div class="rating-wrapper" aria-label="5 start rating">
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                    </div>
-
-                    <p class="rating-text">5170 reviews</p>
-
-                  </div>
-
-                </div>
+              <?php 
+              insertGame();
+              getGame();
+                ?>
 
               </div>
-            </li>
-
-            <li class="scrollbar-item">
-              <div class="shop-card">
-
-                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
-                  <img src="gameposter/rdr.jpg" width="540" height="720" loading="lazy"
-                    alt="Bio-shroom Rejuvenating Serum" class="img-cover">
-
-                  <div class="card-actions">
-
-                    <button class="action-btn" aria-label="add to cart">
-                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="add to whishlist">
-                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="compare">
-                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                  </div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="price">
-                    <span class="span">$100.00</span>
-                  </div>
-
-                  <h3>
-                    <a href="#" class="card-title">Red Dead Redemption</a>
-                  </h3>
-
-                  <div class="card-rating">
-
-                    <div class="rating-wrapper" aria-label="5 start rating">
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                    </div>
-
-                    <p class="rating-text">5170 reviews</p>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="scrollbar-item">
-              <div class="shop-card">
-
-                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
-                  <img src="gameposter/hzd.jpg" width="540" height="720" loading="lazy"
-                    alt="Horizon Zero Dawn" class="img-cover">
-
-                  <div class="card-actions">
-
-                    <button class="action-btn" aria-label="add to cart">
-                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="add to whishlist">
-                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="compare">
-                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                  </div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="price">
-                    <span class="span">$60.00</span>
-                  </div>
-
-                  <h3>
-                    <a href="#" class="card-title">Horizon Zero Dawn</a>
-                  </h3>
-
-                  <div class="card-rating">
-
-                    <div class="rating-wrapper" aria-label="5 start rating">
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                    </div>
-
-                    <p class="rating-text">5170 reviews</p>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="scrollbar-item">
-              <div class="shop-card">
-
-                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
-                  <img src="gameposter/pw.jpg" width="540" height="720" loading="lazy"
-                    alt="Palworld" class="img-cover">
-
-                  <div class="card-actions">
-
-                    <button class="action-btn" aria-label="add to cart">
-                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="add to whishlist">
-                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="compare">
-                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                  </div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="price">
-                    <span class="span">$60.00</span>
-                  </div>
-
-                  <h3>
-                    <a href="#" class="card-title">Palworld</a>
-                  </h3>
-
-                  <div class="card-rating">
-
-                    <div class="rating-wrapper" aria-label="5 start rating">
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                    </div>
-
-                    <p class="rating-text">5170 reviews</p>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="scrollbar-item">
-              <div class="shop-card">
-
-                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
-                  <img src="gameposter/bg.jpg" width="540" height="720" loading="lazy"
-                    alt="Bladur's Gate 3" class="img-cover">
-
-                  <div class="card-actions">
-
-                    <button class="action-btn" aria-label="add to cart">
-                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="add to whishlist">
-                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="compare">
-                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                  </div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="price">
-                    <span class="span">$80.00</span>
-                  </div>
-
-                  <h3>
-                    <a href="#" class="card-title">Baldur's Gate 3</a>
-                  </h3>
-
-                  <div class="card-rating">
-
-                    <div class="rating-wrapper" aria-label="5 start rating">
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                    </div>
-
-                    <p class="rating-text">5170 reviews</p>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li class="scrollbar-item">
-              <div class="shop-card">
-
-                <div class="card-banner img-holder" style="--width: 540; --height: 720;">
-                  <img src="gameposter/rev8.jpg" width="540" height="720" loading="lazy"
-                    alt="resident evil 8" class="img-cover">
-
-                  <div class="card-actions">
-
-                    <button class="action-btn" aria-label="add to cart">
-                      <ion-icon name="bag-handle-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="add to whishlist">
-                      <ion-icon name="star-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                    <button class="action-btn" aria-label="compare">
-                      <ion-icon name="repeat-outline" aria-hidden="true"></ion-icon>
-                    </button>
-
-                  </div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="price">
-                    <span class="span">$75.00</span>
-                  </div>
-
-                  <h3>
-                    <a href="#" class="card-title">Resident Evil Village</a>
-                  </h3>
-
-                  <div class="card-rating">
-
-                    <div class="rating-wrapper" aria-label="5 start rating">
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                      <ion-icon name="star" aria-hidden="true"></ion-icon>
-                    </div>
-
-                    <p class="rating-text">5170 reviews</p>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </li>
 
           </ul>
-
+      </div>
         </div>
       </section>
 
@@ -979,6 +685,11 @@
 
         </div>
 </section>
+
+<?php 
+
+  cart();
+?>
 
 
 <!---

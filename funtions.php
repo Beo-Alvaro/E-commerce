@@ -20,7 +20,7 @@ while($row=mysqli_fetch_assoc($result_query)) {
 
   echo"
 
-          
+          <li class='scrollbar-item'>
               <div class='shop-card' style='width: 23%; min-width: 250px;'>
 
                 <div class='card-banner img-holder' style='--width: 540; --height: 720;'>
@@ -70,7 +70,8 @@ while($row=mysqli_fetch_assoc($result_query)) {
 
                 </div>
 
-              </div>";
+              </div>
+              </li>";
 
 
 }
