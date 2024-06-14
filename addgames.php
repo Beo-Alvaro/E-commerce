@@ -29,44 +29,59 @@
                 require_once('connection.php');
                 $errors = array();
                 if(!empty($_POST['game_title'])){
-                    $gameName = mysqli_real_escape_string($connn, trim($_POST['game_title']));
+                    $gameName = mysqli_real_escape_string($conn, trim($_POST['game_title']));
                 }else{
                 $errors[] = "no title input";
                 }
         
                 if(!empty($_POST['game_desc'])){
-                    $gameDesc = mysqli_real_escape_string($connn, trim($_POST['game_desc']));
+                    $gameDesc = mysqli_real_escape_string($conn, trim($_POST['game_desc']));
                 }else{
                 $errors[] = "no desc input";
                 }
         
                 if(!empty($_POST['game_keyword'])){
-                    $game_keyword = mysqli_real_escape_string($connn, trim($_POST['game_keyword']));
+                    $game_keyword = mysqli_real_escape_string($conn, trim($_POST['game_keyword']));
                 }else{
                 $errors[] = "no keyword input";
                 }
         
                 if(!empty($_POST['game_genre'])){
-                    $game_genre = mysqli_real_escape_string($connn, trim($_POST['game_genre']));
+                    $game_genre = mysqli_real_escape_string($conn, trim($_POST['game_genre']));
                 }else{
                 $errors[] = "no genre chosen";
                 }
 
-                if(!empty($_POST['game_image'])){
-                    $game_image = mysqli_real_escape_string($connn, trim($_POST['game_image']));
+                if(!empty($_FILE['game_image'])){
+                    $game_image = mysqli_real_escape_string($conn, trim($_FILE['game_image']));
+                    $fileTmp = $_FILE['game_image'];
+                    $fileExt = explode('.', $game_image);
+                    $fileActualExt = strtolower(end($fileExt));
+                    $allowed = array('jpg','jpeg','png');
+                    if(in_array($fileActualExt, $allowed)){
+                        $fileNameNew = uniqid('',true).".".$fileActualExt;
+                        $fileDestination = 'E-commerce/gameposter'.$fileNameNew;
+                        move_uploaded_FILE($fileTmp, $fileDestination);
+                        //header("location: admin.php?addgames.php");
+                        echo $game_image;
+                        echo $fileTmp;
+                        echo $fileExt;
+                        echo $fileActualExt;
+                        echo $fileNameNew;
                 }else{
                 $errors[] = "no img chosen";
                 }
-                
+                }
                 if(!empty($_POST['game_price'])){
-                    $game_price = mysqli_real_escape_string($connn, trim($_POST['game_price']));
+                    $game_price = mysqli_real_escape_string($conn, trim($_POST['game_price']));
+                    
                 }else{
                 $errors[] = "no price set";
                 }
         
                 if(empty($errors)){
                     $query = "INSERT INTO game(gameName, gameDesciption, gameKEY, categoryID, gamePicture, gamePrice) VALUES ('$gameName','$gameDesc','$game_keyword','$game_genre','$game_image','$game_price')";
-                    $result = mysqli_query($connn,$query);
+                    $result = mysqli_query($conn,$query);
                     echo '<script> alert("Game added successfully");
                     window.location.href="admin.php"; </script>';
         
