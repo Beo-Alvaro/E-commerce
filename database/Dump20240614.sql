@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: e-commerce
+-- Host: 127.0.0.1    Database: e-commerce
 -- ------------------------------------------------------
--- Server version	8.0.36
+-- Server version	5.5.5-10.4.32-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -21,9 +21,9 @@
 
 DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cart` (
-  `cartID` int NOT NULL,
+  `cartID` int(11) NOT NULL,
   `IPAdrress` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cartID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -44,11 +44,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `category` (
-  `categoryID` int NOT NULL AUTO_INCREMENT,
+  `categoryID` int(11) NOT NULL AUTO_INCREMENT,
   `categoryName` varchar(32) DEFAULT NULL,
-  `categoryDescription` text,
+  `categoryDescription` text DEFAULT NULL,
   PRIMARY KEY (`categoryID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -69,18 +69,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `customeruser`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customeruser` (
-  `userID` int NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
   `userFname` varchar(16) NOT NULL,
   `userLname` varchar(12) DEFAULT NULL,
   `userEmail` varchar(32) NOT NULL,
   `userPass` varchar(16) NOT NULL,
-  `userCountry` varchar(100) NOT NULL,
+  `userName` varchar(24) DEFAULT NULL,
   `accountType` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`userID`),
   UNIQUE KEY `userEmail` (`userEmail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,6 +89,7 @@ CREATE TABLE `customeruser` (
 
 LOCK TABLES `customeruser` WRITE;
 /*!40000 ALTER TABLE `customeruser` DISABLE KEYS */;
+INSERT INTO `customeruser` VALUES (1,'test','test','coco@gmail.com','pass','test','user'),(2,'admin','admin','admin@email.com','pass','admin','admin');
 /*!40000 ALTER TABLE `customeruser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,15 +99,16 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `game`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `game` (
-  `gameID` int NOT NULL AUTO_INCREMENT,
+  `gameID` int(11) NOT NULL AUTO_INCREMENT,
   `gameName` varchar(124) NOT NULL,
-  `gameDesciption` text,
-  `gamePrice` int DEFAULT NULL,
-  `categoryID` int DEFAULT NULL,
+  `gameDesciption` text DEFAULT NULL,
+  `gamePrice` int(11) DEFAULT NULL,
+  `categoryID` int(11) DEFAULT NULL,
   `gamePicture` varchar(255) DEFAULT NULL,
   `gameKeyword` varchar(255) DEFAULT NULL,
+  `views` int(11) DEFAULT NULL,
   PRIMARY KEY (`gameID`),
   KEY `categoryID` (`categoryID`),
   CONSTRAINT `game_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`)
@@ -119,8 +121,35 @@ CREATE TABLE `game` (
 
 LOCK TABLES `game` WRITE;
 /*!40000 ALTER TABLE `game` DISABLE KEYS */;
-INSERT INTO `game` VALUES (5,'Dark Souls 1','The game takes place in the kingdom of Lordran, where players assume the role of a cursed undead character who begins a pilgrimage to discover the fate of their kind',59,2,'darksouls1.jpg','Darksouls'),(6,'Animal Crossing','is a social simulation video game series developed and published by Nintendo',40,2,'animalcrossing.jpg','Animal Crossing');
+INSERT INTO `game` VALUES (5,'Dark Souls 1','The game takes place in the kingdom of Lordran, where players assume the role of a cursed undead character who begins a pilgrimage to discover the fate of their kind',59,2,'darksouls1.jpg','Darksouls',NULL),(6,'Animal Crossing','is a social simulation video game series developed and published by Nintendo',40,2,'animalcrossing.jpg','Animal Crossing',NULL);
 /*!40000 ALTER TABLE `game` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ordergame`
+--
+
+DROP TABLE IF EXISTS `ordergame`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ordergame` (
+  `orderID` int(11) NOT NULL AUTO_INCREMENT,
+  `invoicenum` varchar(128) DEFAULT NULL,
+  `oderstatus` varchar(64) DEFAULT NULL,
+  `userID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`orderID`),
+  KEY `userID` (`userID`),
+  CONSTRAINT `ordergame_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `customeruser` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ordergame`
+--
+
+LOCK TABLES `ordergame` WRITE;
+/*!40000 ALTER TABLE `ordergame` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ordergame` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -129,12 +158,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8 */;
+/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `payment` (
-  `paymentID` int NOT NULL AUTO_INCREMENT,
+  `paymentID` int(11) NOT NULL AUTO_INCREMENT,
   `paymentDate` datetime DEFAULT NULL,
-  `userID` int DEFAULT NULL,
-  `gameID` int DEFAULT NULL,
+  `userID` int(11) DEFAULT NULL,
+  `gameID` int(11) DEFAULT NULL,
   PRIMARY KEY (`paymentID`),
   KEY `userID` (`userID`),
   KEY `gameID` (`gameID`),
@@ -161,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-14 20:47:56
+-- Dump completed on 2024-06-14 23:11:39

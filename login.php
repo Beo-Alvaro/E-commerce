@@ -27,7 +27,7 @@
                     exit();
                 }
             }else{
-                echo 'wrong input';
+                echo '<script> alert("No matched Login Credentials")</script>';
             }
         }
     }

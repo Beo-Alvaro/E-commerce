@@ -45,7 +45,7 @@ $result_query=mysqli_query($con, $get_games);
 while($row=mysqli_fetch_assoc($result_query)) {
   $game_title     =  $row['gameName'];
   $game_desc      =  $row['gameDesciption'];
-  $game_keyword   =  $row['gameKEY'];
+  $game_keyword   =  $row['gameKeyword'];
   $game_genre     =  $row['categoryID'];
   $game_image     =  $row['gamePicture'];
   $game_price     =  $row['gamePrice'];
@@ -76,11 +76,6 @@ while($row=mysqli_fetch_assoc($result_query)) {
             <?php
 }   
 ?>
-
-
-
-
-
         </tbody>
 
     </table>
