@@ -4,7 +4,7 @@
 
 function insertGame() {
     global $con;
-
+    if(!isset($_GET['categ'])) {
 $selec_query="SELECT * FROM `game` ORDER BY gameName";
 $result_query=mysqli_query($con, $selec_query);
 while($row=mysqli_fetch_assoc($result_query)) {
@@ -74,6 +74,83 @@ while($row=mysqli_fetch_assoc($result_query)) {
 
 
 }
+}
+}
+
+function getGame() {
+  global $con;
+  if(isset($_GET['categ'])) {
+$category_id = $_GET['categ'];
+$selec_query="SELECT * FROM `game` WHERE categoryID=$category_id";
+$result_query=mysqli_query($con, $selec_query);
+while($row=mysqli_fetch_assoc($result_query)) {
+$game_title     =  $row['gameName'];
+$game_desc      =  $row['gameDesciption'];
+$game_keyword   =  $row['gameKeyword'];
+$game_genre     =  $row['categoryID'];
+$game_image     =  $row['gamePicture'];
+$game_price     =  $row['gamePrice'];
+$game_id        =  $row['gameID'];
+
+
+
+echo"
+
+        
+            <div class='shop-card' style='width: 23%; min-width: 250px;'>
+
+              <div class='card-banner img-holder' style='--width: 540; --height: 720;'>
+                <img src='gameposter/$game_image' width='540' height='720' loading='lazy'
+                  alt='$game_title' class='img-cover'>
+
+                <div class='card-actions'>
+
+                  <button class='action-btn' aria-label='add to cart' name='add-to-cart'>
+                    <a href='allgames.php?cart-game=$game_id'><ion-icon name='bag-add-outline' aria-hidden='true' aria-hidden='true'></ion-icon></a>
+                  </button>
+
+                  <button class='action-btn' aria-label='add to whishlist'>
+                    <ion-icon name='star-outline' aria-hidden='true'></ion-icon>
+                  </button>
+
+                  <button class='action-btn' aria-label='compare'>
+                    <ion-icon name='repeat-outline' aria-hidden='true'></ion-icon>
+                  </button>
+
+                </div>
+              </div>
+
+              <div class='card-content'>
+
+                <div class='price'>
+                  <span class='spa'>$$game_price.00</span>
+                </div>
+
+                <h3>
+                  <a href='#' class='card-title'>$game_title</a>
+                </h3>
+
+                <div class='card-rating'>
+
+                  <div class='rating-wrapper' aria-label='5 start rating'>
+                    <ion-icon name='star' aria-hidden='true'></ion-icon>
+                    <ion-icon name='star' aria-hidden='true'></ion-icon>
+                    <ion-icon name='star' aria-hidden='true'></ion-icon>
+                    <ion-icon name='star' aria-hidden='true'></ion-icon>
+                    <ion-icon name='star' aria-hidden='true'></ion-icon>
+                  </div>
+
+                  <p class='rating-text'>5170 reviews</p>
+
+                </div>
+
+              </div>
+
+            </div>";
+
+
+}
+}   
 
 }
 
@@ -108,6 +185,82 @@ function addGames() {
 }
 
 }
+
+function getSearch() {
+  global $con;
+  if(isset($_GET['search-btn'])) {
+    $search = $_GET['search-field'];
+$selec_query="SELECT * FROM `game` WHERE gameKeyword like '%$search%'";
+$result_query=mysqli_query($con, $selec_query);
+while($row=mysqli_fetch_assoc($result_query)) {
+  $game_title     =  $row['gameName'];
+  $game_desc      =  $row['gameDesciption'];
+  $game_keyword   =  $row['gameKeyword'];
+  $game_genre     =  $row['categoryID'];
+  $game_image     =  $row['gamePicture'];
+  $game_price     =  $row['gamePrice'];
+  $game_id        =  $row['gameID'];
+
+
+
+  echo"
+
+          
+              <div class='shop-card' style='width: 23%; min-width: 250px;'>
+
+                <div class='card-banner img-holder' style='--width: 540; --height: 720;'>
+                  <img src='gameposter/$game_image' width='540' height='720' loading='lazy'
+                    alt='$game_title' class='img-cover'>
+
+                  <div class='card-actions'>
+
+                    <button class='action-btn' aria-label='add to cart' name='add-to-cart'>
+                      <a href='allgames.php?cart-game=$game_id'><ion-icon name='bag-add-outline' aria-hidden='true' aria-hidden='true'></ion-icon></a>
+                    </button>
+
+                    <button class='action-btn' aria-label='add to whishlist'>
+                      <ion-icon name='star-outline' aria-hidden='true'></ion-icon>
+                    </button>
+
+                    <button class='action-btn' aria-label='compare'>
+                      <ion-icon name='repeat-outline' aria-hidden='true'></ion-icon>
+                    </button>
+
+                  </div>
+                </div>
+
+                <div class='card-content'>
+
+                  <div class='price'>
+                    <span class='spa'>$$game_price.00</span>
+                  </div>
+
+                  <h3>
+                    <a href='#' class='card-title'>$game_title</a>
+                  </h3>
+
+                  <div class='card-rating'>
+
+                    <div class='rating-wrapper' aria-label='5 start rating'>
+                      <ion-icon name='star' aria-hidden='true'></ion-icon>
+                      <ion-icon name='star' aria-hidden='true'></ion-icon>
+                      <ion-icon name='star' aria-hidden='true'></ion-icon>
+                      <ion-icon name='star' aria-hidden='true'></ion-icon>
+                      <ion-icon name='star' aria-hidden='true'></ion-icon>
+                    </div>
+
+                    <p class='rating-text'>5170 reviews</p>
+
+                  </div>
+
+                </div>
+
+              </div>";
+
+            }
+}
+}
+
 
 function getIPAddress() {  
   //whether ip is from the share internet  

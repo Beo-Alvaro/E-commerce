@@ -2,6 +2,7 @@
     include('connection.php');
     include('funtions.php');
 
+
 ?>
 
 
@@ -56,14 +57,12 @@
           <span class="line line-3"></span>
         </button>
     
-        <form action="" method="GET">
+        <form action="search-game.php" method="GET">
 
         <div class="input-wrapper">
-          <input type="search" name="search" placeholder="Search product" class="search-field" autocomplete="off">
+        <input type="search" name="search-field" placeholder="Search product" class="search-field" autocomplete="off">
 
-          <button class="search-submit" aria-label="search">
-            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-          </button>
+        <input type="submit" name="search-btn" value="Search" class="button-submit">
         </div>
 
         </form>
@@ -133,7 +132,7 @@
         while($row=mysqli_fetch_assoc($result)) {
           $game_categ=$row['categoryName'];
           $categ_id=$row['categoryID'];
-          echo"<a href='#'>$game_categ</a>";
+          echo"<a href='allgames.php?categ=$categ_id'>$game_categ</a>";
         }
 ?>
 
@@ -144,6 +143,7 @@
 
           <?php 
               insertGame();
+              getGame();
           ?>
 
         </div>

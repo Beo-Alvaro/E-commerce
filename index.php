@@ -16,6 +16,7 @@
 ---->
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 
 <!---
     GOOGLE FONT LINK
@@ -52,13 +53,13 @@
         </button>
 
         <form action="search-game.php" method="GET">
+
         <div class="input-wrapper">
-          <input type="search" name="search" placeholder="Search product" class="search-field" autocomplete="off">
-    
-          <button class="search-submit" name="search_submit" aria-label="search">
-            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-          </button>
+        <input type="search" name="search-field" placeholder="Search product" class="search-field" autocomplete="off">
+
+        <input type="submit" name="search-btn" value="Search" class="button-submit">
         </div>
+
         </form>
     
         <a href="#" class="logo">
