@@ -1,6 +1,6 @@
 <?php
     include('connection.php');
-    include('functions.php');
+    include('funtions.php');
 
 ?>
 
@@ -23,6 +23,7 @@
 ---->
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 
 <!---
     GOOGLE FONT LINK
@@ -58,11 +59,9 @@
         <form action="" method="GET">
 
         <div class="input-wrapper">
-          <input type="search" name="search" placeholder="Search product" class="search-field" autocomplete="off">
+        <input type="search" name="search-field" placeholder="Search product" class="search-field" autocomplete="off">
 
-          <button class="search-submit" aria-label="search">
-            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-          </button>
+        <input type="submit" name="search-btn" value="Search" class="button-submit">
         </div>
 
         </form>
@@ -114,10 +113,39 @@
 <!---
     ITEMS
 ---->
+<section class='section shop' id='shop' aria-label='shop' data-section>
+
+
+    <div class="dropdown">
+      <button class="dropbtn">Choose Category</button>
+      <div class="dropdown-content">
+
+      <?php 
+
+        $select_game = "SELECT * FROM `category`";
+        $result = mysqli_query($con, $select_game);
+        while($row=mysqli_fetch_assoc($result)) {
+          $game_categ=$row['categoryName'];
+          $categ_id=$row['categoryID'];
+          echo"<a href='allgames.php?categ=$categ_id'>$game_categ</a>";
+        }
+?>
+
+      </div>
+    </div>
+
+        <div class='container' style='display: flex; gap:2%; flex-wrap:wrap;''>
+
+          <?php 
+              getSearch()
+          ?>
+
+        </div>
+</section>
+
 <?php 
 
-insertGame();
-
+  cart();
 ?>
 
 

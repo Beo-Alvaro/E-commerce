@@ -1,3 +1,10 @@
+<?php
+    include('connection.php');
+    include('funtions.php');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +24,7 @@
 ---->
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 
     <!---
     GOOGLE FONT LINK
@@ -54,6 +62,17 @@
                     <span class="line line-3"></span>
                 </button>
 
+        <form action="search-game.php" method="GET">
+
+        <div class="input-wrapper">
+        <input type="search" name="search-field" placeholder="Search product" class="search-field" autocomplete="off">
+
+        <input type="submit" name="search-btn" value="Search" class="button-submit">
+        </div>
+
+        </form>
+    
+        <a href="#" class="logo">
                 <form action="search-game.php" method="GET">
                     <div class="input-wrapper">
                         <input type="search" name="search" placeholder="Search product" class="search-field"
@@ -259,6 +278,45 @@
             <!---
     TRENDING
 ---->
+<section class="section trending" style="padding-block: 50px;"> 
+    <div class="wrapper">
+    <h2 class="h2 section-title" style="margin-bottom: 55px">Trending</h2>
+        <div class="card__container">
+<?php
+        if(!isset($_GET['categ'])) {
+$selec_query="SELECT * FROM `game` ORDER BY views DESC";
+$counter = 0;
+$result_query=mysqli_query($con, $selec_query);
+if($counter >=0){
+while($row=mysqli_fetch_assoc($result_query)) {
+  $game_title     =  $row['gameName'];
+  $game_desc      =  $row['gameDesciption'];
+  $game_keyword   =  $row['gameKeyword'];
+  $game_genre     =  $row['categoryID'];
+  $game_image     =  $row['gamePicture'];
+  $game_price     =  $row['gamePrice'];
+  $game_id        =  $row['gameID'];
+  $game_view        =  $row['views'];
+  $counter++;
+  if($counter == 4) {
+    break;
+  }
+
+
+
+           echo" <article class='card__article'>
+                <img src='gameposter/$game_image' alt='genshin impact' class='card__img'>
+                <div class='card__info'>
+                    <span class='card__description'>TOP GAME</span>
+                    <h2 class='card__title'>$game_title</h2>
+                    <a href='' class='card__button'>Get now</a>
+                </div>
+            </article>";
+          }
+        }
+      }
+            ?>
+        </div>
             <section class="section trending" style="padding-block: 50px;">
                 <div class="wrapper">
                     <h2 class="h2 section-title" style="margin-bottom: 55px">Trending</h2>
@@ -311,6 +369,12 @@
 
                     <ul class="has-scrollbar">
 
+              <?php 
+              insertGame();
+              getGame();
+                ?>
+
+              </div>
                         <li class="scrollbar-item">
                             <div class="shop-card">
 
@@ -335,6 +399,10 @@
                                     </div>
                                 </div>
 
+          </ul>
+      </div>
+        </div>
+      </section>
                                 <div class="card-content">
 
                                     <div class="price">
@@ -989,6 +1057,13 @@
 
                     </ul>
 
+        </div>
+</section>
+
+<?php 
+
+  cart();
+?>
                 </div>
             </section>
 

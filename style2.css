@@ -47,3 +47,22 @@
 .dropdown:hover .dropbtn {
   background-color: #342370;
 }
+
+.button-submit {
+  text-align: center;
+  width: 100px;
+  padding-block: 8px;
+  border: solid;
+  border-color: darkblue;
+  background-color: #ffffff;
+  position: absolute;
+  top: -2px;
+  left: 250px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.button-submit:hover {
+  background-color: darkblue;
+  color: white;
+}
