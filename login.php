@@ -4,18 +4,18 @@
         require_once('connection.php');
         $errors = array();
         if(!empty($_POST['login_username'])){
-            $userName = mysqli_real_escape_string($conn, trim($_POST['login_username']));
+            $userName = mysqli_real_escape_string($con, trim($_POST['login_username']));
         }else{
             $errors[] = "You forgot to enter your username";
         }
         if(!empty($_POST['pass_username'])){
-            $userPass = mysqli_real_escape_string($conn, trim($_POST['pass_username']));
+            $userPass = mysqli_real_escape_string($con, trim($_POST['pass_username']));
         }else{
             $errors[] = "You forgot to enter your password";
         }
         if(empty($errors)){
             $query = "SELECT * FROM customerUser WHERE (userName='$userName'&& userPass = '$userPass')";
-            $result = mysqli_query($conn,$query);
+            $result = mysqli_query($con,$query);
             if(mysqli_num_rows($result)==1){
                 session_start();
                 $_SESSION = mysqli_fetch_array($result,MYSQLI_ASSOC);

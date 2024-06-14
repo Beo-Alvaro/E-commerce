@@ -3,44 +3,44 @@
         require_once('connection.php');
         $errors = array();
         if(!empty($_POST['add-fname'])){
-            $userfname = mysqli_real_escape_string($conn, trim($_POST['add-fname']));
+            $userfname = mysqli_real_escape_string($con, trim($_POST['add-fname']));
         }else{
         $errors[] = "no fname input";
         }
 
         if(!empty($_POST['add-lname'])){
-            $userlname = mysqli_real_escape_string($conn, trim($_POST['add-lname']));
+            $userlname = mysqli_real_escape_string($con, trim($_POST['add-lname']));
         }else{
         $errors[] = "no lname input";
         }
 
         if(!empty($_POST['add-username'])){
-            $userusername = mysqli_real_escape_string($conn, trim($_POST['add-username']));
+            $userusername = mysqli_real_escape_string($con, trim($_POST['add-username']));
         }else{
         $errors[] = "no price username";
         }
 
         if(!empty($_POST['add-email'])){
-            $useremail = mysqli_real_escape_string($conn, trim($_POST['add-email']));
+            $useremail = mysqli_real_escape_string($con, trim($_POST['add-email']));
         }else{
         $errors[] = "no email chosen";
         }
 
         if(!empty($_POST['add-password'])){
-            $userpassword = mysqli_real_escape_string($conn, trim($_POST['add-password']));
+            $userpassword = mysqli_real_escape_string($con, trim($_POST['add-password']));
         }else{
         $errors[] = "no password chosen";
         }
 
         if(!empty($_POST['add-accounttype'])){
-            $userType = mysqli_real_escape_string($conn, trim($_POST['add-accounttype']));
+            $userType = mysqli_real_escape_string($con, trim($_POST['add-accounttype']));
         }else{
         $errors[] = "no accounttype chosen";
         }
 
         if(empty($errors)){
             $query = "INSERT INTO customerUser(userFname, userLname, userName, userEmail, userPass, accountType) VALUES ('$userfname','$userlname','$userusername','$useremail','$userpassword','$userType')";
-            $result = mysqli_query($conn,$query);
+            $result = mysqli_query($con,$query);
             echo '<script> alert("User added successfully");
             window.location.href="admin.php"; </script>';
             

@@ -8,7 +8,7 @@
         $game_id = $_GET['edit_game'];
 
         $get_game = "SELECT * FROM `game` WHERE gameID=$game_id";
-        $result_query=mysqli_query($conn, $get_game);
+        $result_query=mysqli_query($con, $get_game);
         $row=mysqli_fetch_assoc($result_query);
         $game_title     =  $row['gameName'];
         $game_desc      =  $row['gameDesciption'];
@@ -19,7 +19,7 @@
         $game_id        =  $row['gameID'];
 
         $get_genre="SELECT * FROM `category` WHERE categoryID=$game_genre";
-                $result_genre=mysqli_query($conn, $get_genre);
+                $result_genre=mysqli_query($con, $get_genre);
                 while($row=mysqli_fetch_assoc($result_genre)) {
                     $genre_name = $row['categoryName'];
                 }
@@ -57,7 +57,7 @@
             <option value="">Select Genre</option>
             <?php 
                 $select_all ="SELECT * FROM `category`";
-                $result_cate = mysqli_query($conn, $select_all);
+                $result_cate = mysqli_query($con, $select_all);
                 while($row_cate=mysqli_fetch_assoc($result_cate)) {
 
                     $category_name = $row_cate['categoryName'];

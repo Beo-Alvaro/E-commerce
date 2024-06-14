@@ -124,15 +124,15 @@ session_start();
 <?php
 /*require_once('db_connect.php');
 
-function getAdminUsers($conn) {
+function getAdminUsers($con) {
     $sql = "SELECT * FROM adminUser";
-    $result = $conn->query($sql);
+    $result = $con->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-function addAdminUser($conn, $adminName, $adminDisplayName, $adminEmail, $adminPass) {
+function addAdminUser($con, $adminName, $adminDisplayName, $adminEmail, $adminPass) {
     $sql = "INSERT INTO adminUser (adminName, adminDisplayName, adminEmail, adminPass) VALUES (?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
+    $stmt = $con->prepare($sql);
     $stmt->bind_param("ssss", $adminName, $adminDisplayName, $adminEmail, $adminPass);
     $stmt->execute();
     $stmt->close();
