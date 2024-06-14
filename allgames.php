@@ -135,12 +135,22 @@
 
     <section class='section shop' id='shop' aria-label='shop' data-section>
 
+
         <div class="dropdown">
             <button class="dropbtn">Choose Category</button>
             <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+
+                <?php 
+
+        $select_game = "SELECT * FROM `category`";
+        $result = mysqli_query($con, $select_game);
+        while($row=mysqli_fetch_assoc($result)) {
+          $game_categ=$row['categoryName'];
+          $categ_id=$row['categoryID'];
+          echo"<a href='#'>$game_categ</a>";
+        }
+?>
+
             </div>
         </div>
 
