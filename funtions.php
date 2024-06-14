@@ -135,7 +135,7 @@ function cart() {
     $ip = getIPAddress();
     $game_id = $_GET['cart-game'];
     $select = "SELECT * FROM `cart` WHERE cartIPAdd='$ip' AND cartID=$game_id";
-    $result_query=mysqli_query($conn,$select);
+    $result_query=mysqli_query($con,$select);
     $num_rows = mysqli_num_rows($result_query);
     if($num_rows > 0) {
         echo"<script>alert('This game is already added')</script>";
@@ -157,13 +157,13 @@ function cart_item() {
     global $con;
     $ip = getIPAddress();
     $select = "SELECT * FROM `cart` WHERE cartIPAdd='$ip'";
-    $result_query=mysqli_query($conn,$select);
+    $result_query=mysqli_query($con,$select);
     $cart_item = mysqli_num_rows($result_query);
     } else {
       global $con;
       $ip = getIPAddress();
       $select = "SELECT * FROM `cart` WHERE cartIPAdd='$ip'";
-      $result_query=mysqli_query($conn,$select);
+      $result_query=mysqli_query($con,$select);
       $cart_item = mysqli_num_rows($result_query);
 
     }
@@ -178,11 +178,11 @@ function total_cart_price() {
   $get_ip = getIPAddress();
   $total = 0;
   $cart_query="SELECT * FROM `cart` WHERE cartIPAdd='$get_ip'";
-  $result_query=mysqli_query($conn,$cart_query);
+  $result_query=mysqli_query($con,$cart_query);
   while($row = mysqli_fetch_array($result_query)) {
     $game_id = $row['cartID'];
     $select_game="SELECT * FROM `game` WHERE gameID='$game_id'";
-    $result_game=mysqli_query($conn,$select_game);
+    $result_game=mysqli_query($con,$select_game);
     while($row_game = mysqli_fetch_array($result_game)) {
       $per_price = $row_game['gamePrice'];
       $game_title = $row_game['gameName'];
