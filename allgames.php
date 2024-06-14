@@ -23,6 +23,7 @@
 ---->
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 
 <!---
     GOOGLE FONT LINK
@@ -86,7 +87,7 @@
           <button class="header-action-btn" aria-label="cart item" value="click-cart" name="click-cart">
             <data class="btn-text" value="0">$0.00</data>
     
-            <ion-icon name="bag-add-outline" aria-hidden="true" aria-hidden="true"></ion-icon>
+            <a href="cart.php"><ion-icon name="bag-add-outline" aria-hidden="true" aria-hidden="true"></ion-icon></a>
     
             <span class="btn-badge"><?php cart_item();?></span>
           </button>
@@ -120,13 +121,14 @@
 
 <section class='section shop' id='shop' aria-label='shop' data-section>
 
-    <!--<div class="genre"><button class="dropbtn">Genre</button>
+    <div class="dropdown">
+      <button class="dropbtn">Choose Category</button>
       <div class="dropdown-content">
         <a href="#">Link 1</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
       </div>
-    </div> -->
+    </div>
 
         <div class='container' style='display: flex; gap:2%; flex-wrap:wrap;''>
 

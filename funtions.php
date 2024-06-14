@@ -177,13 +177,15 @@ function total_cart_price() {
 
   $get_ip = getIPAddress();
   $total = 0;
-  $cart_query="SELECT * FROM `cart` WHERE IPAdrress=$get_ip";
-  $result_query=mysqli_query($conn,$cart_query);
+  $cart_query="SELECT * FROM `cart` WHERE IPAdrress='$get_ip'";
+  $result_query=mysqli_query($con,$cart_query);
   while($row = mysqli_fetch_array($result_query)) {
     $game_id = $row['cartID'];
-    $select_game="SELECT * FROM `game` WHERE gameID=$game_id";
-    $result_game=mysqli_query($conn,$select_game);
+    $select_game="SELECT * FROM `game` WHERE gameID='$game_id'";
+    $result_game=mysqli_query($con,$select_game);
     while($row_game = mysqli_fetch_array($result_game)) {
+      $per_price = $row_game['gamePrice'];
+      $game_title = $row_game['gameName'];
       $game_price = array($row_game['gamePrice']);
       $game_val = array_sum($game_price);
 
