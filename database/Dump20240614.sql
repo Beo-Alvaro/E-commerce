@@ -21,12 +21,12 @@
 
 DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `cart` (
   `cartID` int NOT NULL,
   `IPAdrress` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cartID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,13 +44,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `category` (
   `categoryID` int NOT NULL AUTO_INCREMENT,
   `categoryName` varchar(32) DEFAULT NULL,
   `categoryDescription` text,
   PRIMARY KEY (`categoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `customeruser`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `customeruser` (
   `userID` int NOT NULL AUTO_INCREMENT,
   `userFname` varchar(16) NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE `customeruser` (
   `accountType` varchar(12) DEFAULT NULL,
   PRIMARY KEY (`userID`),
   UNIQUE KEY `userEmail` (`userEmail`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `game`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `game` (
   `gameID` int NOT NULL AUTO_INCREMENT,
   `gameName` varchar(124) NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE `game` (
   PRIMARY KEY (`gameID`),
   KEY `categoryID` (`categoryID`),
   CONSTRAINT `game_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `category` (`categoryID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +129,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `payment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `payment` (
   `paymentID` int NOT NULL AUTO_INCREMENT,
   `paymentDate` datetime DEFAULT NULL,
@@ -140,7 +140,7 @@ CREATE TABLE `payment` (
   KEY `gameID` (`gameID`),
   CONSTRAINT `payment_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `customeruser` (`userID`),
   CONSTRAINT `payment_ibfk_2` FOREIGN KEY (`gameID`) REFERENCES `game` (`gameID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
