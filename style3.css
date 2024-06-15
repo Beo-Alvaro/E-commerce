@@ -1,31 +1,49 @@
 /*========Login body style========*/
-.login_body{
-    background-image: linear-gradient(to left top, #ffffff, #fbf7fd, #faeff9, #fce6f1, #fedde6, #ffdcdc, #ffddd3, #fbdfcb, #f2e9d0, #e8f3dd, #e3faed, #e6fffd);
-    font-family: 'Poppins', sans-serif;
+.login_body {
+  background-image: linear-gradient(
+    to left top,
+    #ffffff,
+    #fbf7fd,
+    #faeff9,
+    #fce6f1,
+    #fedde6,
+    #ffdcdc,
+    #ffddd3,
+    #fbdfcb,
+    #f2e9d0,
+    #e8f3dd,
+    #e3faed,
+    #e6fffd
+  );
+  font-family: 'Poppins', sans-serif;
 }
 
 /*========LOGIN STYLE========*/
-.login{
+.login {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   animation: drop-down 0.8s ease-in;
 }
 
-    @keyframes drop-down{
-      from{top:10%}
-      to{top:50%}
-    }
+@keyframes drop-down {
+  from {
+    top: 10%;
+  }
+  to {
+    top: 50%;
+  }
+}
 
 /*========Login body========*/
-#loginbody{
+#loginbody {
   border-radius: 20px;
   height: 380px;
   width: 600px;
 
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 50%;
   margin-top: -250;
   margin-left: -300;
@@ -34,7 +52,7 @@
 }
 
 /*========login form input: user========*/
-#login_username{
+#login_username {
   height: 50px;
   width: 480px;
   border-radius: 20px;
@@ -50,23 +68,23 @@
   margin-left: -240;
 }
 /*========Login form input: pass========*/
-  #pass_username{
-    height: 50px;
-    width: 480px;
-    border-radius: 20px;
-    border: 0px;
-    text-align: center;
+#pass_username {
+  height: 50px;
+  width: 480px;
+  border-radius: 20px;
+  border: 0px;
+  text-align: center;
 
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -50;
-    margin-left: -240;
-  }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50;
+  margin-left: -240;
+}
 /*========Login form button========*/
-#login_button{
+#login_button {
   height: 50px;
   width: 480px;
   border-radius: 20px;
@@ -78,23 +96,25 @@
   font-family: 'Poppins', sans-serif;
 
   position: absolute;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   margin-top: 20;
   margin-left: -240;
 }
 /*========Login form button hove effect========*/
 #login_button:hover {
-  background-color: #ddd8d8a2; 
-  cursor: pointer; 
+  background-color: #ddd8d8a2;
+  cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 /* ========END OF LOGIN STYLE=======*/
 
-.logo{
+/*====== LOGO ======*/
+
+.logo {
   position: absolute;
-  top:8%;
-  left:43.33%;
+  top: 8%;
+  left: 43.33%;
   width: 80px;
   height: auto;
   margin-bottom: 5px;
