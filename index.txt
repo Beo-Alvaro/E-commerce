@@ -188,3 +188,76 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+<main>
+    <article>
+
+        <section class="section hero" id="home" aria-label="hero" data-section></section>
+
+        <ul class="has-scrollbar">
+
+            <li class="scrollbar-item">
+
+                <div class="hero-card has-bg-image" style="background-image: url(gameposter/ls-game4.jpg)">
+                    <div class="card-content">
+   
+                        <h1 class="h1 hero-title">
+                            DISCOVER AWESOME GAMES
+                        </h1>
+
+                        <p class="hero-text">
+                            Discovering games on our website is an adventure in itself. Dive into a world where endless entertainment awaits at your fingertips
+                        </p>
+
+                        <a href="#" class="btn btn-primary">Get Started</a>
+
+                    </div>
+                </div>
+            
+            </li>
+
+            <li class="scrollbar-item">
+                
+                <div class="hero-card has-bg-image" style="background-image: url(gameposter/ls-game3.jpg)">
+                    <div class="card-content">
+   
+                        <h1 class="h1 hero-title">
+                            BE IMMERSED
+                        </h1>
+
+                        <p class="hero-text">
+                            Explore curated collections of the latest and greatest titles across genres, from action-packed adventures to mind-bending puzzles
+                        </p>
+
+                        <a href="#" class="btn btn-primary">Get Started</a>
+
+                    </div>
+                </div>
+            
+            </li>
+
+            <li class="scrollbar-item">
+
+                <div class="hero-card has-bg-image" style="background-image: url(gameposter/ls-game2.jpg)">
+                    <div class="card-content">
+   
+                        <h1 class="h1 hero-title">
+                            EMBARK ON YOUR JOURNEY
+                        </h1>
+
+                        <p class="hero-text">
+                            Whether you're a seasoned gamer or just starting your journey, embark on an exploration of discovery and delight with our vast selection of games
+                        </p>
+
+                        <a href="#" class="btn btn-primary">Get Started</a>
+
+                    </div>
+                </div>
+            
+            </li>
+
+        </ul>
+
+    </article>
+</main>

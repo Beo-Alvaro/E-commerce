@@ -1220,25 +1220,6 @@ body {
     gap: 30px;
   }
 
-  /**
-   * BANNER
-   */
-
-  .banner-list {
-    grid-template-columns: 1fr 0.5fr;
-  }
-
-  /**
-   * OFFER
-   */
-
-  .offer .container {
-    display: grid;
-    grid-template-columns: 1fr 0.7fr;
-    align-items: center;
-    gap: 30px;
-  }
-
   .offer-banner {
     margin-block-end: 0;
   }
@@ -1461,14 +1442,6 @@ body {
 
   .hero-text {
     max-width: 40ch;
-  }
-
-  /**
-   * BANNER
-   */
-
-  .banner-card-1 .card-title {
-    max-width: 15ch;
   }
 
   /**
